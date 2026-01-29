@@ -1,41 +1,42 @@
-# Nuxt Minimal Starter
+# Daniel's Portfolio
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A premium, interactive portfolio website showcasing my journey as a Full Stack Developer. Built with **Nuxt 3**, **Vuetify**, and **GSAP** for advanced animations.
+
+## Tech Stack
+- **Framework**: [Nuxt 3](https://nuxt.com/)
+- **UI Component Library**: [Vuetify](https://vuetifyjs.com/)
+- **Animations**: [GSAP](https://greensock.com/gsap/)
+- **Styling**: SCSS / CSS
+- **Icons**: @mdi/font
+
+## Features
+- **Hero Section**: Interactive morphing "blob" animation with GSAP and mouse-move parallax effect.
+- **Timeline**: Visual education and work history with scroll-triggered animations.
+- **Responsive Design**: Mobile-first approach with custom scrollbar handling.
+
+## Recent Updates
+- **Fixes**: Resolved double scrollbar issue and Vuetify import errors.
+- **Hero**: Added Parallax effect for a more dynamic feel.
+- **Timeline**: Implemented detailed journey with GSAP ScrollTrigger.
+- **Skills**: Interactive grid with hover effects and staggered animations.
+- **Projects**: Glassmorphism cards displaying portfolio work.
+- **Contact**: Interactive section with copy-to-clipboard functionality.
 
 ## Setup
 
 Make sure to install dependencies:
 
 ```bash
-# npm
+# Install dependencies
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
+## Development
 
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
 ## Production
@@ -43,33 +44,5 @@ bun run dev
 Build the application for production:
 
 ```bash
-# npm
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
