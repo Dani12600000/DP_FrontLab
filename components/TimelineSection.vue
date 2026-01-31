@@ -3,12 +3,12 @@
     <v-row justify="center">
       <v-col cols="12" md="10">
         <h2 class="text-h4 font-weight-bold text-primary mb-6">
-          My Journey
+          {{ $t('sections.journey') }}
         </h2>
 
         <v-timeline side="end" align="start" density="compact" class="custom-timeline">
           <v-timeline-item
-            v-for="(item, index) in timeline"
+            v-for="(item, index) in translatedTimeline"
             :key="index"
             dot-color="secondary"
             size="small"
@@ -44,7 +44,32 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
 const { timeline } = usePortfolioData()
+const { tm, rt } = useI18n()
+
+interface TimelineItem {
+  title: string
+  description: string
+  location: string
+  details?: string
+}
+
+const translatedTimeline = computed(() => {
+  const translations = tm('timeline') as TimelineItem[]
+  return timeline.map((item, index) => {
+    const translation = translations?.[index]
+    return {
+      ...item,
+      title: translation ? rt(translation.title) : item.title,
+      description: translation ? rt(translation.description) : item.description,
+      location: translation ? rt(translation.location) : item.location,
+      details: translation?.details ? rt(translation.details) : item.details
+    }
+  })
+})
 </script>
 
 <style scoped>

@@ -1,0 +1,79 @@
+{
+    "Phone": "Telefone",
+    "hero": {
+        "title": "Programador Full Stack",
+        "subtitle": "Olá, eu sou o {name}",
+        "button": "Explorar o Meu Percurso"
+    },
+    "sections": {
+        "journey": "O Meu Percurso",
+        "skills": "Competências e Tecnologias",
+        "projects": "Projetos em Destaque",
+        "contact": "Contacte-me"
+    },
+    "contact": {
+        "copied": "{label} copiado para a área de transferência!",
+        "footer": "© {year} Daniel. Desenvolvido com Nuxt e Vuetify."
+    },
+    "bio": {
+        "description": "Programador versátil, que se adapta a qualquer desafio como uma forma em mutação. Apaixonado por criar experiências digitais fluidas e apelativas."
+    },
+    "timeline": [
+        {
+            "title": "O Início",
+            "description": "Nascimento.",
+            "location": "Lisboa"
+        },
+        {
+            "title": "Escola de Caselas",
+            "description": "Ensino Primário (1º - 4º Ano). Um percurso de 5 anos.",
+            "location": "Lisboa"
+        },
+        {
+            "title": "Escola Paula Vicente",
+            "description": "Ensino Básico (5º - 8º Ano).",
+            "location": "Restelo, Lisboa"
+        },
+        {
+            "title": "Escola do Restelo",
+            "description": "9º Ano.",
+            "location": "Restelo, Lisboa"
+        },
+        {
+            "title": "Escola Secundária Dr. Solano de Abreu",
+            "description": "Ensino Secundário e Curso Profissional (10º - 12º). Técnico de Gestão e Programação de Sistemas Informáticos.",
+            "details": "Projeto Detalhado: PAP. Realizei 2 estágios na Câmara Municipal de Abrantes durante este período.",
+            "location": "Abrantes"
+        },
+        {
+            "title": "ESTA - CTeSP",
+            "description": "Ensino Superior - Curso Técnico Superior Profissional.",
+            "details": "Estágio: Planeado para a Alemanha, mas o destino levou de volta à Câmara Municipal de Abrantes para um 3º estágio de sucesso.",
+            "location": "Abrantes"
+        },
+        {
+            "title": "SkillTech",
+            "description": "Programador Full Stack.",
+            "details": "Atualmente a trabalhar na SkillTech, a prestar serviços para a Câmara Municipal de Abrantes.",
+            "location": "Abrantes"
+        }
+    ],
+    "projects": [
+        {
+            "title": "Primeiro Website (Weebly)",
+            "description": "O meu primeiro website criado no 5º ano. Ainda está online!",
+            "tags": [
+                "Weebly",
+                "História"
+            ]
+        },
+        {
+            "title": "Projeto PAP",
+            "description": "Prova de Aptidão Profissional. Um marco significativo no meu curso técnico.",
+            "tags": [
+                "Académico",
+                "Full Stack"
+            ]
+        }
+    ]
+}

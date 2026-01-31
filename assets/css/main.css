@@ -47,3 +47,27 @@ body {
   padding-top: 2rem !important;
   padding-bottom: 2rem !important;
 }
+
+/* GSAP-style button effect */
+.v-btn {
+  position: relative;
+  overflow: hidden !important;
+  border: 2px solid currentColor !important;
+  background-color: transparent !important;
+}
+
+.v-btn__content {
+  position: relative;
+  z-index: 2;
+}
+
+.gsap-fill {
+  position: absolute;
+  width: 0;
+  height: 0;
+  background-color: var(--secondary-color, #2979FF);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+

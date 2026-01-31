@@ -14,13 +14,13 @@
     <v-row no-gutters class="justify-center content-layer py-12">
       <v-col cols="11" md="8" lg="6" class="text-center">
         <h2 class="text-h5 text-md-h4 font-weight-light mb-2 text-primary">
-          Hi, I am {{ bio.name }}
+          {{ $t('hero.subtitle', { name: bio.name }) }}
         </h2>
         <h1 class="text-h3 text-md-h2 font-weight-bold mb-4 text-white">
-          Full Stack Developer
+          {{ $t('hero.title') }}
         </h1>
         <p class="text-body-1 text-grey-lighten-1 mb-6" style="max-width: 600px; margin: 0 auto;">
-          {{ bio.description }}
+          {{ $t('bio.description') }}
         </p>
         
         <v-btn
@@ -31,7 +31,7 @@
           class="text-none px-8"
           @click="$emit('scroll-to-timeline')"
         >
-          Explore My Journey
+          {{ $t('hero.button') }}
           <v-icon end icon="mdi-chevron-down" />
         </v-btn>
       </v-col>

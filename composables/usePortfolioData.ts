@@ -44,7 +44,7 @@ export const usePortfolioData = () => {
             year: "2020 - 2023",
             title: "Escola Secundária Dr. Solano de Abreu",
             description: "High School & Professional Course (10th - 12th). Information Technology Technician.",
-            details: "Completed 2 Internships at Câmara Municipal de Abrantes during this period.",
+            details: "Detailed Project: PAP. Completed 2 Internships at Câmara Municipal de Abrantes during this period.",
             location: "Abrantes",
             image: "/images/solano.jpg",
             icon: "mdi-laptop-code"
@@ -53,7 +53,7 @@ export const usePortfolioData = () => {
             year: "2023 - 2025",
             title: "ESTA - CTeSP",
             description: "Higher Education - Curso Técnico Superior Profissional.",
-            details: "Detailed Project: PAP. Internship: Planned to go to Germany, but destiny led back to Câmara Municipal de Abrantes for a 3rd successful internship.",
+            details: "Internship: Planned to go to Germany, but destiny led back to Câmara Municipal de Abrantes for a 3rd successful internship.",
             location: "Abrantes",
             image: "/images/esta.jpg",
             icon: "mdi-domain"
@@ -88,7 +88,7 @@ export const usePortfolioData = () => {
         {
             title: "First Website (Weebly)",
             description: "My very first website created in 5th grade. It's still up!",
-            link: "danilike.weebly.com", // User needs to provide this
+            link: "https://danilike.weebly.com", // Fixed link
             image: null,
             tags: ["Weebly", "History"]
         },

@@ -11,13 +11,33 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    (_options, nuxt) => {
-      nuxt.hooks.hook('vite:extendConfig', (config) => {
-        // @ts-expect-error
+    '@nuxtjs/i18n',
+    (_options: any, nuxt: any) => {
+      nuxt.hooks.hook('vite:extendConfig', (config: any) => {
         config.plugins.push(vuetify({ autoImport: true }))
       })
     },
   ],
+
+  i18n: {
+    langDir: 'locales',
+    strategy: 'no_prefix',
+    defaultLocale: 'en',
+    locales: [
+      {
+        code: 'en',
+        iso: 'en-US',
+        name: 'English',
+        file: 'en.json'
+      },
+      {
+        code: 'pt',
+        iso: 'pt-PT',
+        name: 'Português',
+        file: 'pt.json'
+      }
+    ]
+  },
 
   vite: {
     vue: {

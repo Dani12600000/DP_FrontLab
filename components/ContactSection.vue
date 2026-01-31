@@ -3,7 +3,7 @@
     <v-row justify="center">
       <v-col cols="12" md="10" class="text-center">
         <h2 class="text-h4 font-weight-bold text-primary mb-4">
-          Contact Me
+          {{ $t('sections.contact') }}
         </h2>
         
         <div class="d-flex flex-column flex-md-row justify-center align-center gap-4">
@@ -23,7 +23,7 @@
             color="white"
             class="text-none"
             size="large"
-            @click="copyToClipboard(bio.phone, 'Phone')"
+            @click="copyToClipboard(bio.phone, $t('Phone'))"
           >
             <v-icon start icon="mdi-phone" color="primary"></v-icon>
             {{ bio.phone }}
@@ -31,7 +31,7 @@
         </div>
 
         <div class="text-caption text-grey-darken-1 mt-8">
-          © {{ new Date().getFullYear() }} Daniel. Built with Nuxt & Vuetify.
+          {{ $t('contact.footer', { year: new Date().getFullYear() }) }}
         </div>
       </v-col>
     </v-row>
@@ -45,15 +45,17 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 const { bio } = usePortfolioData()
+const { t } = useI18n()
 const snackbar = ref(false)
 const snackbarText = ref('')
 
 const copyToClipboard = async (text: string, label: string) => {
   try {
     await navigator.clipboard.writeText(text)
-    snackbarText.value = `${label} copied to clipboard!`
+    snackbarText.value = t('contact.copied', { label })
     snackbar.value = true
   } catch (err) {
     console.error('Failed to copy', err)

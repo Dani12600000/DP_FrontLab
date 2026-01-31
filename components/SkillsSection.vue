@@ -3,7 +3,7 @@
     <v-row justify="center">
       <v-col cols="12" md="10">
         <h2 class="text-h4 font-weight-bold text-primary mb-6">
-          Skills & Technologies
+          {{ $t('sections.skills') }}
         </h2>
 
         <div class="d-flex flex-wrap gap-2">

@@ -10,9 +10,12 @@
 
 <script setup lang="ts">
 import { useHead } from '#app'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 useHead({
-  titleTemplate: (title) => title ? `${title}` : 'Daniel - Full Stack Developer',
+  titleTemplate: (title) => title ? `${title}` : `Daniel - ${t('hero.title')}`,
 })
 
 const scrollToTimeline = () => {
