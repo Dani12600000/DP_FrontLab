@@ -3,11 +3,11 @@
     fluid 
     class="hero-section pa-0 d-flex align-center position-relative overflow-hidden"
   >
-    <!-- Abstract Background -->
-    <div class="blob-container">
-       <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#2979FF" d="M44.7,-76.4C58.9,-69.2,71.8,-59.1,79.6,-46.9C87.4,-34.7,90.1,-20.4,85.8,-7.4C81.5,5.6,70.2,17.3,60.2,27.3C50.2,37.3,41.5,45.6,31.7,52.3C21.9,59,11,64.1,-1.2,66.2C-13.4,68.3,-26.8,67.4,-38.3,61.5C-49.8,55.6,-59.4,44.7,-66.2,32.3C-73,19.9,-77,6,-74.6,-6.9C-72.2,-19.8,-63.4,-31.7,-53.4,-41.8C-43.4,-51.9,-32.2,-60.2,-20.1,-65.4C-8,-70.6,5,-72.7,19,-73.8" transform="translate(100 100)" style="opacity: 0.15;" />
-      </svg>
+    <!-- Abstract Dynamic Background -->
+    <div class="blob-wrapper">
+      <div class="blob blob-secondary"></div>
+      <div class="blob blob-random-1"></div>
+      <div class="blob blob-random-2"></div>
     </div>
 
     <!-- Content -->
@@ -40,30 +40,116 @@
 </template>
 
 <script setup lang="ts">
-const { bio } = usePortfolioData()
+import { onMounted } from 'vue'
+import { gsap } from 'gsap'
+
+// Define the shape of bio to avoid TS errors if auto-import is delayed
+interface Bio {
+  name: string;
+  description: string;
+}
+
+const { bio } = usePortfolioData() as { bio: Bio }
+
+onMounted(() => {
+  if (import.meta.client) {
+    const blobs = document.querySelectorAll('.blob')
+    
+    blobs.forEach((blob, index) => {
+      const element = blob as HTMLElement
+      
+      // Set initial random positions
+      gsap.set(element, {
+        x: (Math.random() - 0.5) * 800,
+        y: (Math.random() - 0.5) * 600,
+        scale: 0.8 + Math.random() * 0.5,
+      })
+
+      // Animate movement and shape
+      gsap.to(element, {
+        duration: 15 + Math.random() * 10,
+        x: () => (Math.random() - 0.5) * 1000,
+        y: () => (Math.random() - 0.5) * 800,
+        rotation: 360,
+        scale: () => 1 + Math.random() * 0.8,
+        borderRadius: () => {
+          const r1 = 30 + Math.random() * 40
+          const r2 = 30 + Math.random() * 40
+          const r3 = 30 + Math.random() * 40
+          const r4 = 30 + Math.random() * 40
+          return `${r1}% ${100-r1}% ${r2}% ${100-r2}% / ${r3}% ${r4}% ${100-r4}% ${100-r3}%`
+        },
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        delay: index * 2
+      })
+    })
+  }
+})
 </script>
 
 <style scoped>
 .hero-section {
-  min-height: 60vh;
-  width: 100%;
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 1) 100%);
+  height: 100vh;
+  min-height: 100vh;
+  width: 100vw;
+  background: #0F172A;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  position: relative;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
 }
 
-.blob-container {
+.blob-wrapper {
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%; 
-  max-width: 600px;
+  width: 100%;
+  height: 100%;
   z-index: 1;
   pointer-events: none;
-  filter: blur(60px);
+  filter: blur(100px); /* Increased blur for more "foggy" effect */
+  opacity: 0.5;
+}
+
+.blob {
+  position: absolute;
+  width: 50vw;
+  height: 50vw;
+  max-width: 600px;
+  max-height: 600px;
+  background: #2979FF;
+  border-radius: 50%;
+  left: 25%;
+  top: 15%;
+}
+
+.blob-secondary {
+  background: #2979FF; /* Secondary Color */
+  opacity: 0.7;
+}
+
+.blob-random-1 {
+  background: #7c4dff; /* Deep Purple */
+  opacity: 0.5;
+}
+
+.blob-random-2 {
+  background: #00e5ff; /* Primary/Cyan */
+  opacity: 0.4;
 }
 
 .content-layer {
   position: relative;
   z-index: 2;
+}
+
+/* Ensure content is readable over blobs */
+h1, h2 {
+  text-shadow: 0 0 20px rgba(15, 23, 42, 0.5);
 }
 </style>

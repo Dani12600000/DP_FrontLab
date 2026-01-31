@@ -24,6 +24,11 @@ body {
   max-width: 1200px !important;
 }
 
+.hero-section.v-container {
+  max-width: none !important;
+  width: 100vw !important;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
