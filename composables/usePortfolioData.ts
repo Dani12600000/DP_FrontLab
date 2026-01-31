@@ -21,7 +21,7 @@ export const usePortfolioData = () => {
             title: "Escola de Caselas",
             description: "Primary Education (1st - 4th Grade). A 5-year journey.",
             location: "Lisbon",
-            image: "/images/caselas.jpg",
+            image: "/images/escola_caselas.webp",
             icon: "mdi-school"
         },
         {
@@ -29,7 +29,7 @@ export const usePortfolioData = () => {
             title: "Escola Paula Vicente",
             description: "Middle School (5th - 8th Grade).",
             location: "Restelo, Lisbon",
-            image: "/images/paula_vicente.jpg",
+            image: "/images/escola_paula_vicente.webp",
             icon: "mdi-school"
         },
         {
@@ -37,7 +37,7 @@ export const usePortfolioData = () => {
             title: "Escola do Restelo",
             description: "9th Grade.",
             location: "Restelo, Lisbon",
-            image: "/images/restelo.jpg",
+            image: "/images/escola_restelo.webp",
             icon: "mdi-school"
         },
         {
@@ -46,7 +46,7 @@ export const usePortfolioData = () => {
             description: "High School & Professional Course (10th - 12th). Information Technology Technician.",
             details: "Detailed Project: PAP. Completed 2 Internships at Câmara Municipal de Abrantes during this period.",
             location: "Abrantes",
-            image: "/images/solano.jpg",
+            image: "/images/escola_dr_solano_abreu.webp",
             icon: "mdi-laptop-code"
         },
         {
@@ -55,7 +55,7 @@ export const usePortfolioData = () => {
             description: "Higher Education - Curso Técnico Superior Profissional.",
             details: "Internship: Planned to go to Germany, but destiny led back to Câmara Municipal de Abrantes for a 3rd successful internship.",
             location: "Abrantes",
-            image: "/images/esta.jpg",
+            image: "/images/ESTA_Abrantes.jpg",
             icon: "mdi-domain"
         },
         {

@@ -11,6 +11,12 @@
         "projects": "Projetos em Destaque",
         "contact": "Contacte-me"
     },
+    "journey": {
+        "start": "Início",
+        "startSubtitle": "A Jornada Começa",
+        "present": "Presente",
+        "presentSubtitle": "Continuando..."
+    },
     "contact": {
         "copied": "{label} copiado para a área de transferência!",
         "footer": "© {year} Daniel. Desenvolvido com Nuxt, GSAP e Vuetify."
@@ -20,42 +26,61 @@
     },
     "timeline": [
         {
+            "year": "2004",
             "title": "O Início",
             "description": "Nascimento.",
-            "location": "Lisboa"
+            "location": "Lisboa",
+            "icon": "mdi-baby-carriage"
         },
         {
+            "year": "2010 - 2015",
             "title": "Escola de Caselas",
             "description": "Ensino Primário (1º - 4º Ano). Um percurso de 5 anos.",
-            "location": "Lisboa"
+            "location": "Lisboa",
+            "image": "/images/escola_caselas.webp",
+            "icon": "mdi-school"
         },
         {
+            "year": "2015 - 2019",
             "title": "Escola Paula Vicente",
             "description": "Ensino Básico (5º - 8º Ano).",
-            "location": "Restelo, Lisboa"
+            "location": "Restelo, Lisboa",
+            "image": "/images/escola_paula_vicente.webp",
+            "icon": "mdi-school"
         },
         {
+            "year": "2019 - 2020",
             "title": "Escola do Restelo",
             "description": "9º Ano.",
-            "location": "Restelo, Lisboa"
+            "location": "Restelo, Lisboa",
+            "image": "/images/escola_restelo.webp",
+            "icon": "mdi-school"
         },
         {
+            "year": "2020 - 2023",
             "title": "Escola Secundária Dr. Solano de Abreu",
             "description": "Ensino Secundário e Curso Profissional (10º - 12º). Técnico de Gestão e Programação de Sistemas Informáticos.",
             "details": "Projeto Detalhado: PAP. Realizei 2 estágios na Câmara Municipal de Abrantes durante este período.",
-            "location": "Abrantes"
+            "location": "Abrantes",
+            "image": "/images/escola_dr_solano_abreu.webp",
+            "icon": "mdi-laptop-code"
         },
         {
+            "year": "2023 - 2025",
             "title": "ESTA - CTeSP",
             "description": "Ensino Superior - Curso Técnico Superior Profissional.",
             "details": "Estágio: Planeado para a Alemanha, mas o destino levou de volta à Câmara Municipal de Abrantes para um 3º estágio de sucesso.",
-            "location": "Abrantes"
+            "location": "Abrantes",
+            "image": "/images/ESTA_Abrantes.jpg",
+            "icon": "mdi-domain"
         },
         {
+            "year": "2025 - Presente",
             "title": "SkillTech",
             "description": "Programador Full Stack.",
             "details": "Atualmente a trabalhar na SkillTech, a prestar serviços para a Câmara Municipal de Abrantes.",
-            "location": "Abrantes"
+            "location": "Abrantes",
+            "icon": "mdi-briefcase-account"
         }
     ],
     "projects": [
