@@ -48,18 +48,23 @@ const currentLocaleName = computed(() => {
 
 <style scoped>
 .language-switcher .v-btn {
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 .language-switcher .v-btn:hover {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
+/* Base state transition - this makes it smooth when entering AND leaving hover */
+.language-switcher .v-btn :deep(.v-icon),
+.language-switcher .v-btn :deep(.v-btn__content) {
+  transition: color 0.5s ease !important;
+}
+
 /* Change icon and text color on hover for visibility */
 .language-switcher .v-btn:hover :deep(.v-icon),
 .language-switcher .v-btn:hover :deep(.v-btn__content) {
   color: white !important;
-  transition: color 0.3s ease;
 }
 
 .border-subtle {

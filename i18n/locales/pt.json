@@ -13,7 +13,7 @@
     },
     "contact": {
         "copied": "{label} copiado para a área de transferência!",
-        "footer": "© {year} Daniel. Desenvolvido com Nuxt e Vuetify."
+        "footer": "© {year} Daniel. Desenvolvido com Nuxt, GSAP e Vuetify."
     },
     "bio": {
         "description": "Programador versátil, que se adapta a qualquer desafio como uma forma em mutação. Apaixonado por criar experiências digitais fluidas e apelativas."

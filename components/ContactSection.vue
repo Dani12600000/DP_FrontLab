@@ -14,7 +14,7 @@
             size="large"
             @click="copyToClipboard(bio.email, 'Email')"
           >
-            <v-icon start icon="mdi-email-outline" color="secondary"></v-icon>
+            <v-icon start icon="mdi-email-outline" color="primary"></v-icon>
             {{ bio.email }}
           </v-btn>
 

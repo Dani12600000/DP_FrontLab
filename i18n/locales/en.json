@@ -13,7 +13,7 @@
     },
     "contact": {
         "copied": "{label} copied to clipboard!",
-        "footer": "© {year} Daniel. Built with Nuxt & Vuetify."
+        "footer": "© {year} Daniel. Built with Nuxt, GSAP & Vuetify."
     },
     "bio": {
         "description": "Versatile developer, adapting to any challenge like a morphing shape. Passionate about creating seamless and beautiful digital experiences."
