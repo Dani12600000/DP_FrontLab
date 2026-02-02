@@ -11,6 +11,7 @@
     </v-app-bar>
 
     <CustomCursor />
+    <MusicPlayer />
 
     <v-main>
       <slot />
