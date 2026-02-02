@@ -51,7 +51,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'Daniel - Portfolio',
+      title: 'DP_FrontLab - Portfolio - Daniel Pereira',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'description', content: 'Full Stack Developer Portfolio' },

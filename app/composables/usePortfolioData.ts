@@ -75,15 +75,22 @@ export const usePortfolioData = () => {
         { name: 'Vue.js', icon: 'mdi-vuejs', color: '#42b883' },
         { name: 'Nuxt', icon: 'mdi-nuxt', color: '#00DC82' },
         { name: 'Vuetify', icon: 'mdi-vuetify', color: '#1867C0' },
-        { name: 'Python', icon: 'mdi-language-python', color: '#3776AB' },
+        { name: 'TypeScript', icon: 'mdi-language-typescript', color: '#3178C6' },
         { name: 'JavaScript', icon: 'mdi-language-javascript', color: '#F7DF1E' },
+        { name: 'HTML5', icon: 'mdi-language-html5', color: '#E34F26' },
+        { name: 'CSS3', icon: 'mdi-language-css3', color: '#1572B6' },
+        { name: 'PHP', icon: 'mdi-language-php', color: '#777BB4' },
+        { name: 'Python', icon: 'mdi-language-python', color: '#3776AB' },
         { name: 'Java', icon: 'mdi-language-java', color: '#007396' },
         { name: 'C', icon: 'mdi-language-c', color: '#A8B9CC' },
         { name: 'Visual Basic', icon: 'mdi-microsoft-visual-studio', color: '#5C2D91' },
-        { name: 'Pascal', icon: 'mdi-code-braces', color: '#F25022' }, // Generic code icon
-        { name: 'MongoDB', icon: 'mdi-database', color: '#47A248' },
+        { name: 'Pascal', icon: 'mdi-code-braces', color: '#F25022' },
         { name: 'SQL', icon: 'mdi-database-search', color: '#336791' },
         { name: 'PostgreSQL', icon: 'mdi-database-outline', color: '#336791' },
+        { name: 'MongoDB', icon: 'mdi-database', color: '#47A248' },
+        { name: 'Node.js', icon: 'mdi-nodejs', color: '#339933' },
+        { name: 'Git', icon: 'mdi-git', color: '#F05032' },
+        { name: 'GSAP', icon: 'mdi-animation', color: '#88CE02' },
     ];
 
     return {
