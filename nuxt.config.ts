@@ -2,9 +2,11 @@
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 export default defineNuxtConfig({
+  future: {
+    compatibilityVersion: 4,
+  },
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  srcDir: '.',
   
   build: {
     transpile: ['vuetify'],
@@ -63,5 +65,5 @@ export default defineNuxtConfig({
     }
   },
 
-  css: ['assets/css/main.css']
+  css: ['~/assets/css/main.css']
 })
