@@ -82,23 +82,5 @@
             "location": "Abrantes",
             "icon": "mdi-briefcase-account"
         }
-    ],
-    "projects": [
-        {
-            "title": "Primeiro Website (Weebly)",
-            "description": "O meu primeiro website criado no 5º ano. Ainda está online!",
-            "tags": [
-                "Weebly",
-                "História"
-            ]
-        },
-        {
-            "title": "Projeto PAP",
-            "description": "Prova de Aptidão Profissional. Um marco significativo no meu curso técnico.",
-            "tags": [
-                "Académico",
-                "Full Stack"
-            ]
-        }
     ]
 }

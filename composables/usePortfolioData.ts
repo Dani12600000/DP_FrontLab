@@ -1,3 +1,5 @@
+import projects from '~/assets/data/projects.json'
+
 export const usePortfolioData = () => {
     const bio = {
         name: "Daniel",
@@ -84,23 +86,6 @@ export const usePortfolioData = () => {
         { name: 'PostgreSQL', icon: 'mdi-database-outline', color: '#336791' },
     ];
 
-    const projects = [
-        {
-            title: "First Website (Weebly)",
-            description: "My very first website created in 5th grade. It's still up!",
-            link: "https://danilike.weebly.com", // Fixed link
-            image: null,
-            tags: ["Weebly", "History"]
-        },
-        {
-            title: "PAP Project",
-            description: "Prova de Aptidão Profissional. A significant milestone in my technical course.",
-            link: null,
-            image: null,
-            tags: ["Academic", "Full Stack"]
-        }
-    ];
-
     return {
         bio,
         timeline,
@@ -108,3 +93,4 @@ export const usePortfolioData = () => {
         projects
     };
 };
+

@@ -53,23 +53,16 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { projects } = usePortfolioData()
-const { tm, rt } = useI18n()
-
-interface ProjectItem {
-  title: string
-  description: string
-  tags: string[]
-}
+const { locale } = useI18n()
 
 const translatedProjects = computed(() => {
-  const translations = tm('projects') as ProjectItem[]
-  return projects.map((project, index) => {
-    const translation = translations?.[index]
+  return (projects as any[]).map((project) => {
+    const translation = project.translations[locale.value] || project.translations['en'] || {}
     return {
       ...project,
-      title: translation ? rt(translation.title) : project.title,
-      description: translation ? rt(translation.description) : project.description,
-      tags: translation?.tags ? translation.tags.map(tag => rt(tag)) : project.tags
+      title: translation.title || project.title,
+      description: translation.description || project.description,
+      tags: translation.tags || project.tags,
     }
   })
 })

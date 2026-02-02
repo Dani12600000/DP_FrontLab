@@ -1,0 +1,56 @@
+[
+    {
+        "id": "weebly",
+        "link": "https://danilike.weebly.com",
+        "image": null,
+        "tags": [
+            "Weebly",
+            "History"
+        ],
+        "translations": {
+            "pt": {
+                "title": "Primeiro Website (Weebly)",
+                "description": "O meu primeiro website criado no 5º ano. Ainda está online! Lá podes encontrar mais projetos que fiz",
+                "tags": [
+                    "Weebly",
+                    "História"
+                ]
+            },
+            "en": {
+                "title": "First Website (Weebly)",
+                "description": "My very first website created in 5th grade. It's still up! There you can find more projects I did",
+                "tags": [
+                    "Weebly",
+                    "History"
+                ]
+            }
+        }
+    },
+    {
+        "id": "pap",
+        "link": "https://github.com/Dani12600000/Industries-Manager",
+        "image": null,
+        "tags": [
+            "Academic",
+            "Full Stack"
+        ],
+        "translations": {
+            "pt": {
+                "title": "Projeto PAP",
+                "description": "Prova de Aptidão Profissional. Um marco significativo no meu curso técnico.",
+                "tags": [
+                    "Académico",
+                    "Full Stack"
+                ]
+            },
+            "en": {
+                "title": "PAP Project",
+                "description": "Prova de Aptidão Profissional. A significant milestone in my technical course.",
+                "tags": [
+                    "Academic",
+                    "Full Stack"
+                ]
+            }
+        }
+    }
+]
