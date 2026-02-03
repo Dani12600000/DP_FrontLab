@@ -35,7 +35,7 @@
       <div class="music-panel glass-panel pa-6 rounded-xl d-flex flex-column align-center gap-2">
         <!-- Album Cover -->
         <v-img
-          src="/images/music_cover.jpeg"
+          :src="`${config.app.baseURL}images/music_cover.jpeg`"
           width="140"
           height="140"
           cover
@@ -109,7 +109,7 @@
       @pause="isPlaying = false"
       @play="isPlaying = true"
     >
-      <source src="/music/The Efficient Architect.mp3" type="audio/mpeg">
+      <source :src="`${config.app.baseURL}music/The Efficient Architect.mp3`" type="audio/mpeg">
     </audio>
   </div>
 </template>
@@ -123,9 +123,10 @@ const menuOpen = ref(false)
 const audioPlayer = ref<HTMLAudioElement | null>(null)
 
 // Audio State
+const config = useRuntimeConfig()
 const currentTime = ref(0)
 const duration = ref(0)
-const trackPath = '/music/The Efficient Architect.mp3'
+const trackPath = `${config.app.baseURL}music/The Efficient Architect.mp3`
 
 const togglePlay = () => {
   if (!audioPlayer.value) return

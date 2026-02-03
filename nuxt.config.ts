@@ -50,6 +50,7 @@ export default defineNuxtConfig({
   },
 
   app: {
+    baseURL: '/DP_FrontLab/',
     head: {
       title: 'DP_FrontLab - Portfolio - Daniel Pereira',
       meta: [
@@ -63,6 +64,10 @@ export default defineNuxtConfig({
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap' }
       ]
     }
+  },
+
+  nitro: {
+    preset: 'github-pages'
   },
 
   css: ['~/assets/css/main.css']
