@@ -18,6 +18,7 @@
         "presentSubtitle": "Continuing..."
     },
     "contact": {
+        "book_time": "Book a Meeting",
         "copied": "{label} copied to clipboard!",
         "footer": "© {year} Daniel. Built with Nuxt, GSAP & Vuetify."
     },

@@ -5,28 +5,11 @@
         <h2 class="text-h4 font-weight-bold text-primary mb-4">
           {{ $t('sections.contact') }}
         </h2>
-        
-        <div class="d-flex flex-column flex-md-row justify-center align-center gap-4">
-          <v-btn
-            variant="text"
-            color="white"
-            class="text-none"
-            size="large"
-            @click="copyToClipboard(bio.email, 'Email')"
-          >
-            <v-icon start icon="mdi-email-outline" color="primary"></v-icon>
-            {{ bio.email }}
-          </v-btn>
 
-          <v-btn
-            variant="text"
-            color="white"
-            class="text-none"
-            size="large"
-            @click="copyToClipboard(bio.phone, $t('Phone'))"
-          >
-            <v-icon start icon="mdi-phone" color="primary"></v-icon>
-            {{ bio.phone }}
+        <div class="d-flex justify-center mt-6">
+          <v-btn color="secondary" size="large" variant="flat" rounded="lg" class="text-none px-8"
+            prepend-icon="mdi-calendar-check" @click="openCalendly">
+            {{ $t('contact.book_time') || 'Agendar Reunião' }}
           </v-btn>
         </div>
 
@@ -36,7 +19,6 @@
       </v-col>
     </v-row>
 
-    <!-- Snackbar for copy feedback -->
     <v-snackbar v-model="snackbar" color="success" timeout="2000">
       {{ snackbarText }}
     </v-snackbar>
@@ -44,27 +26,42 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-const { bio } = usePortfolioData()
 const { t } = useI18n()
 const snackbar = ref(false)
 const snackbarText = ref('')
 
-const copyToClipboard = async (text: string, label: string) => {
-  try {
-    await navigator.clipboard.writeText(text)
-    snackbarText.value = t('contact.copied', { label })
-    snackbar.value = true
-  } catch (err) {
-    console.error('Failed to copy', err)
+// Carrega os recursos do Calendly quando o componente monta
+onMounted(() => {
+  // Carrega o CSS
+  if (!document.querySelector('link[href*="calendly.com"]')) {
+    const link = document.createElement('link')
+    link.href = 'https://assets.calendly.com/assets/external/widget.css'
+    link.rel = 'stylesheet'
+    document.head.appendChild(link)
+  }
+
+  // Carrega o Script
+  if (!document.querySelector('script[src*="widget.js"]')) {
+    const script = document.createElement('script')
+    script.src = 'https://assets.calendly.com/assets/external/widget.js'
+    script.async = true
+    document.head.appendChild(script)
+  }
+})
+
+const openCalendly = () => {
+  // @ts-ignore
+  if (window.Calendly) {
+    // @ts-ignore
+    window.Calendly.initPopupWidget({
+      url: 'https://calendly.com/dp709020/30min'
+    });
+  } else {
+    // Caso o script ainda não tenha carregado totalmente
+    console.error("Calendly script not loaded yet");
   }
 }
 </script>
-
-<style scoped>
-.gap-4 {
-  gap: 16px;
-}
-</style>

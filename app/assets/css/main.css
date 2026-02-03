@@ -61,7 +61,9 @@ body {
   background-color: transparent !important;
 }
 
-.v-btn__content {
+.v-btn__content,
+.v-btn__prepend,
+.v-btn__append {
   position: relative;
   z-index: 2;
 }

@@ -18,6 +18,7 @@
         "presentSubtitle": "Continuando..."
     },
     "contact": {
+        "book_time": "Agendar Reunião",
         "copied": "{label} copiado para a área de transferência!",
         "footer": "© {year} Daniel. Desenvolvido com Nuxt, GSAP e Vuetify."
     },
