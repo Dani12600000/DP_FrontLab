@@ -1,9 +1,9 @@
 # Daniel's Portfolio
 
-A premium, interactive portfolio website showcasing my journey as a Full Stack Developer. Built with **Nuxt 3**, **Vuetify**, and **GSAP** for advanced animations.
+A premium, interactive portfolio website showcasing my journey as a Full Stack Developer. Built with **Nuxt 4**, **Vuetify**, and **GSAP** for advanced animations.
 
 ## Tech Stack
-- **Framework**: [Nuxt 3](https://nuxt.com/)
+- **Framework**: [Nuxt 4](https://nuxt.com/)
 - **UI Component Library**: [Vuetify](https://vuetifyjs.com/)
 - **Animations**: [GSAP](https://greensock.com/gsap/)
 - **Styling**: SCSS / CSS
