@@ -103,6 +103,7 @@
     <audio 
       ref="audioPlayer" 
       loop
+      preload="auto"
       @timeupdate="updateTime"
       @loadedmetadata="onLoadedMetadata"
       @pause="isPlaying = false"
@@ -182,6 +183,11 @@ const downloadTrack = (e: Event) => {
 onMounted(() => {
   if (audioPlayer.value) {
     audioPlayer.value.volume = 0.5 
+    audioPlayer.value.load()
+    // Check if metadata is already loaded (useful for cached audio)
+    if (audioPlayer.value.readyState >= 1) {
+      duration.value = audioPlayer.value.duration
+    }
   }
 })
 
@@ -258,9 +264,6 @@ onUnmounted(() => {
   transition: transform 0.2s ease;
 }
 
-:deep(.v-slider-thumb:hover) {
-  transform: scale(1.2);
-}
 
 :deep(.v-slider-thumb__surface) {
   background: white !important;
