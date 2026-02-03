@@ -47,6 +47,9 @@ export default defineNuxtConfig({
         transformAssetUrls,
       },
     },
+    ssr: {
+      noExternal: ['vuetify'],
+    },
   },
 
   app: {
@@ -67,7 +70,10 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: 'github-pages'
+    preset: 'github-pages',
+    externals: {
+      inline: ['vuetify']
+    }
   },
 
   css: ['~/assets/css/main.css']
