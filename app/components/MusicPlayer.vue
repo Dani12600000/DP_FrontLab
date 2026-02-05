@@ -294,7 +294,8 @@ onUnmounted(() => {
   position: relative;
   overflow: hidden;
   border: 2px solid white !important;
-  background: transparent !important;
+  background: rgba(var(--v-theme-background), 0.7) !important;
+  backdrop-filter: blur(12px);
 }
 
 .music-fab {
