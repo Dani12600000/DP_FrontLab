@@ -92,7 +92,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const { t, tm, rt } = useI18n()
-const config = useRuntimeConfig()
 
 const wrapper = ref<HTMLElement | null>(null)
 const container = ref<HTMLElement | null>(null)
@@ -103,23 +102,15 @@ const translatedTimeline = computed(() => {
   const rawTimeline = tm('timeline') as any[]
   if (!Array.isArray(rawTimeline)) return []
   
-  return rawTimeline.map((item) => {
-    let imagePath = item.image ? rt(item.image) : null
-    if (imagePath && !imagePath.startsWith('http')) {
-      // Prepend baseURL and remove leading slash to avoid double slashes
-      imagePath = `${config.app.baseURL}${imagePath.replace(/^\//, '')}`
-    }
-
-    return {
-      year: item.year ? rt(item.year) : '',
-      title: item.title ? rt(item.title) : '',
-      description: item.description ? rt(item.description) : '',
-      location: item.location ? rt(item.location) : '',
-      details: item.details ? rt(item.details) : null,
-      image: imagePath,
-      icon: item.icon ? rt(item.icon) : 'mdi-school'
-    }
-  })
+  return rawTimeline.map((item) => ({
+    year: item.year ? rt(item.year) : '',
+    title: item.title ? rt(item.title) : '',
+    description: item.description ? rt(item.description) : '',
+    location: item.location ? rt(item.location) : '',
+    details: item.details ? rt(item.details) : null,
+    image: item.image ? rt(item.image) : null,
+    icon: item.icon ? rt(item.icon) : 'mdi-school'
+  }))
 })
 
 onMounted(() => {
