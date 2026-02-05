@@ -72,10 +72,15 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build Nuxt (SPA mode)
         run: ${{ steps.detect-package-manager.outputs.manager }} run build
+      - name: Create GitHub Pages structure
+        run: |
+          mkdir -p _site/DP_FrontLab
+          cp -r .output/public/* _site/DP_FrontLab/
+          cp .output/public/.nojekyll _site/ || true
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .output/public
+          path: _site
 
   # Deployment job
   deploy:
