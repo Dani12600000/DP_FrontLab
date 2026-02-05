@@ -71,14 +71,10 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: 'github-pages',
+    preset: 'static',
     prerender: {
-      routes: ['/'],
       crawlLinks: false,
       failOnError: false
-    },
-    externals: {
-      inline: ['vuetify']
     }
   },
 
