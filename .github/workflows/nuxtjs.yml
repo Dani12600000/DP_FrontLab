@@ -70,12 +70,17 @@ jobs:
             ${{ runner.os }}-nuxt-build-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      - name: Static HTML export with Nuxt
-        run: ${{ steps.detect-package-manager.outputs.manager }} run generate
+      - name: Build Nuxt (SPA mode)
+        run: ${{ steps.detect-package-manager.outputs.manager }} run build
+      - name: Prepare deployment directory
+        run: |
+          mkdir -p dist
+          cp -r .output/public/* dist/
+          cp public/.nojekyll dist/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .output/public
+          path: dist
 
   # Deployment job
   deploy:
