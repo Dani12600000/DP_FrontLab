@@ -24,7 +24,6 @@
         </p>
         
         <v-btn
-          color="secondary"
           size="large"
           variant="flat"
           rounded="lg"

@@ -7,7 +7,7 @@
         </h2>
 
         <div class="d-flex justify-center mt-6">
-          <v-btn color="secondary" size="large" variant="flat" rounded="lg" class="text-none px-8"
+          <v-btn size="large" variant="flat" rounded="lg" class="text-none px-8"
             prepend-icon="mdi-calendar-check" @click="openCalendly">
             {{ $t('contact.book_time') || 'Agendar Reunião' }}
           </v-btn>
