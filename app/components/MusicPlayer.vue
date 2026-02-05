@@ -14,7 +14,6 @@
           v-bind="props"
           icon
           variant="flat"
-          rounded="lg"
           width="64"
           height="64"
           @click="togglePlay"
@@ -75,8 +74,6 @@
           <v-btn
             icon
             variant="flat"
-            color="secondary"
-            rounded="lg"
             width="56"
             height="56"
             class="mr-2"
@@ -89,8 +86,6 @@
           <v-btn
             icon
             variant="flat"
-            color="secondary"
-            rounded="lg"
             width="56"
             height="56"
             class="ml-2"
@@ -119,7 +114,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch, nextTick } from 'vue'
+import { gsap } from 'gsap'
 
 const config = useRuntimeConfig()
 
@@ -132,6 +128,89 @@ const audioPlayer = ref<HTMLAudioElement | null>(null)
 const currentTime = ref(0)
 const duration = ref(0)
 const trackPath = `${config.app.baseURL}music/The Efficient Architect.mp3`
+
+// Watch for menu opening to initialize GSAP on panel buttons
+watch(menuOpen, async (isOpen) => {
+  if (isOpen) {
+    await nextTick()
+    // Give the menu time to render
+    setTimeout(() => {
+      const panelButtons = document.querySelectorAll('.music-panel .v-btn:not(.gsap-initialized)')
+      panelButtons.forEach((btn) => {
+        const button = btn as HTMLElement
+        button.classList.add('gsap-initialized')
+
+        // Create fill element
+        const fill = document.createElement('span')
+        fill.classList.add('gsap-fill')
+        button.insertBefore(fill, button.firstChild)
+
+        button.addEventListener('mouseenter', (e: MouseEvent) => {
+          const rect = button.getBoundingClientRect()
+          const x = e.clientX - rect.left
+          const y = e.clientY - rect.top
+          
+          gsap.killTweensOf(fill)
+          
+          // Hide cursor
+          document.body.classList.add('cursor-hidden')
+          const cursor = document.getElementById('jelly-cursor')
+          if (cursor) {
+            gsap.killTweensOf(cursor)
+            gsap.to(cursor, { scale: 0, duration: 0.2 })
+          }
+          
+          const maxDistance = Math.sqrt(
+            Math.pow(Math.max(x, rect.width - x), 2) + 
+            Math.pow(Math.max(y, rect.height - y), 2)
+          )
+          
+          gsap.set(fill, {
+            left: x,
+            top: y,
+            xPercent: -50,
+            yPercent: -50,
+          })
+
+          gsap.fromTo(fill, 
+            { width: 0, height: 0 },
+            {
+              width: maxDistance * 2.5,
+              height: maxDistance * 2.5,
+              duration: 0.6,
+              ease: 'power2.out',
+            }
+          )
+        })
+
+        button.addEventListener('mouseleave', (e: MouseEvent) => {
+          const rect = button.getBoundingClientRect()
+          const x = e.clientX - rect.left
+          const y = e.clientY - rect.top
+          
+          gsap.killTweensOf(fill)
+          
+          // Show cursor
+          document.body.classList.remove('cursor-hidden')
+          const cursor = document.getElementById('jelly-cursor')
+          if (cursor) {
+            gsap.killTweensOf(cursor)
+            gsap.to(cursor, { scale: 1, duration: 0.3 })
+          }
+
+          gsap.to(fill, {
+            left: x,
+            top: y,
+            width: 0,
+            height: 0,
+            duration: 0.4,
+            ease: 'power2.in',
+          })
+        })
+      })
+    }, 100)
+  }
+})
 
 const togglePlay = () => {
   if (!audioPlayer.value) return
@@ -210,25 +289,23 @@ onUnmounted(() => {
   z-index: 9999;
 }
 
-/* Buttons inherit rounded-lg from component props */
+/* Buttons with white border and secondary icons */
+.v-btn {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid white !important;
+  background: transparent !important;
+}
 
 .music-fab {
   backdrop-filter: blur(4px);
 }
 
-.music-fab:hover, .control-btn:hover {
-  transform: scale(1.05);
-}
-
-/* Icon starts blue and turns white on hover to match GSAP fill */
+/* Icon starts secondary color and turns white on hover (via GSAP plugin) */
 .music-icon {
-  transition: color 0.4s ease !important;
+  color: rgb(var(--v-theme-secondary)) !important;
   position: relative;
   z-index: 5;
-}
-
-.v-btn:hover .music-icon {
-  color: white !important;
 }
 
 .glass-panel {

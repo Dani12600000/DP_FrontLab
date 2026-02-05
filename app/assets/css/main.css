@@ -78,3 +78,13 @@ body {
   z-index: 1;
 }
 
+/* Smooth transition for icons */
+.v-btn .v-icon {
+  transition: color 0.5s ease !important;
+}
+
+/* Make icons white on hover */
+.v-btn:hover .v-icon {
+  color: white !important;
+}
+
