@@ -54,6 +54,7 @@ export default defineNuxtConfig({
   },
 
   app: {
+    baseURL: '/DP_FrontLab/',
     head: {
       title: 'DP_FrontLab - Portfolio - Daniel Pereira',
       meta: [
