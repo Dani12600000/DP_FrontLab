@@ -14,12 +14,12 @@
           v-bind="props"
           icon
           variant="flat"
+          rounded="lg"
           width="64"
           height="64"
           @click="togglePlay"
         >
           <v-icon 
-            color="secondary" 
             size="32" 
             class="music-icon"
           >
@@ -35,7 +35,7 @@
       <div class="music-panel glass-panel pa-6 rounded-xl d-flex flex-column align-center gap-2">
         <!-- Album Cover -->
         <v-img
-          src="/images/music_cover.jpeg"
+          :src="`${config.app.baseURL}images/music_cover.jpeg`"
           width="140"
           height="140"
           cover
@@ -75,25 +75,29 @@
           <v-btn
             icon
             variant="flat"
+            color="secondary"
+            rounded="lg"
             width="56"
             height="56"
             class="mr-2"
             @click="togglePlay"
           >
-            <v-icon color="secondary" size="32" class="music-icon">{{ isPlaying ? 'mdi-pause-circle' : 'mdi-play-circle' }}</v-icon>
+            <v-icon size="32" class="music-icon">{{ isPlaying ? 'mdi-pause-circle' : 'mdi-play-circle' }}</v-icon>
           </v-btn>
 
           <!-- Download Button -->
           <v-btn
             icon
             variant="flat"
+            color="secondary"
+            rounded="lg"
             width="56"
             height="56"
             class="ml-2"
             @click="downloadTrack"
             title="Download Track"
           >
-            <v-icon color="secondary" size="24" class="music-icon">mdi-download</v-icon>
+            <v-icon size="24" class="music-icon">mdi-download</v-icon>
           </v-btn>
         </div>
       </div>
@@ -109,13 +113,15 @@
       @pause="isPlaying = false"
       @play="isPlaying = true"
     >
-      <source src="/music/The Efficient Architect.mp3" type="audio/mpeg">
+      <source :src="`${config.app.baseURL}music/The Efficient Architect.mp3`" type="audio/mpeg">
     </audio>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
+
+const config = useRuntimeConfig()
 
 const isPlaying = ref(false)
 const isDragging = ref(false)
@@ -125,7 +131,7 @@ const audioPlayer = ref<HTMLAudioElement | null>(null)
 // Audio State
 const currentTime = ref(0)
 const duration = ref(0)
-const trackPath = '/music/The Efficient Architect.mp3'
+const trackPath = `${config.app.baseURL}music/The Efficient Architect.mp3`
 
 const togglePlay = () => {
   if (!audioPlayer.value) return
@@ -204,10 +210,7 @@ onUnmounted(() => {
   z-index: 9999;
 }
 
-/* Rounded shape for buttons */
-.v-btn {
-  border-radius: 50% !important;
-}
+/* Buttons inherit rounded-lg from component props */
 
 .music-fab {
   backdrop-filter: blur(4px);

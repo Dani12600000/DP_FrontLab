@@ -92,6 +92,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const { t, tm, rt } = useI18n()
+const { getAssetPath } = useAssetPath()
 
 const wrapper = ref<HTMLElement | null>(null)
 const container = ref<HTMLElement | null>(null)
@@ -108,7 +109,7 @@ const translatedTimeline = computed(() => {
     description: item.description ? rt(item.description) : '',
     location: item.location ? rt(item.location) : '',
     details: item.details ? rt(item.details) : null,
-    image: item.image ? rt(item.image) : null,
+    image: item.image ? getAssetPath(rt(item.image)) : null,
     icon: item.icon ? rt(item.icon) : 'mdi-school'
   }))
 })
