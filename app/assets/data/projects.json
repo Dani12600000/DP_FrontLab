@@ -52,5 +52,59 @@
                 ]
             }
         }
+    },
+    {
+        "id": "movemaster",
+        "link": "https://github.com/Dani12600000/movemaster",
+        "image": "/images/movemaster-logo.png",
+        "tags": [
+            "Hobby",
+            "Cheat"
+        ],
+        "translations": {
+            "pt": {
+                "title": "Movemaster",
+                "description": "Um projeto de hobby para ajudar a jogar xadrez melhor",
+                "tags": [
+                    "Hobby",
+                    "Trapaça"
+                ]
+            },
+            "en": {
+                "title": "Movemaster",
+                "description": "A hobby project to help me play chess better",
+                "tags": [
+                    "Hobby",
+                    "Cheat"
+                ]
+            }
+        }
+    },
+    {
+        "id": "terminator",
+        "link": "https://dani12600000.github.io/Terminator/",
+        "image": "/images/logo.png",
+        "tags": [
+            "Hobby",
+            "Cheat"
+        ],
+        "translations": {
+            "pt": {
+                "title": "Terminator",
+                "description": "Um site que criei para me ajudar a resolver o Termo (famosamente conhecido por ser o wordle português).",
+                "tags": [
+                    "Hobby",
+                    "Trapaça"
+                ]
+            },
+            "en": {
+                "title": "Terminator",
+                "description": "A website I created to help me solve the Termo (famously known for being the Portuguese wordle).",
+                "tags": [
+                    "Hobby",
+                    "Cheat"
+                ]
+            }
+        }
     }
 ]

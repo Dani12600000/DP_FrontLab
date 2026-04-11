@@ -102,7 +102,7 @@
     <audio 
       ref="audioPlayer" 
       loop
-      preload="auto"
+      preload="metadata"
       @timeupdate="updateTime"
       @loadedmetadata="onLoadedMetadata"
       @pause="isPlaying = false"
